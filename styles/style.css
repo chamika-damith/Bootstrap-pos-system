@@ -1,0 +1,21 @@
+body{
+    background-color: #E9ECEE;
+}
+.navbar-brand {
+    font-weight: bold;
+    font-size: 30px;
+    font-family: 'Poppins';
+}
+.navtop {
+    background-color: #F9F8FB;
+    border-bottom: 3px solid black;
+    box-shadow: 0 2px 0px #363636;
+}
+
+.nav-item{
+    font-weight: 300;
+    font-family: 'Poppins';
+}
+.navigation:hover{
+    color: #00ff04 !important;
+}
