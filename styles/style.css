@@ -58,3 +58,12 @@ body{
     font-family: Ubuntu;
     padding-top: 2px;
 }
+.manageCustomer{
+    background-color: #49b249;
+}
+.card-header{
+    background-color: #49b249;
+}
+#addcustomer{
+    background-color: #067c8d !important;
+}
