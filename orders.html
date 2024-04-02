@@ -14,7 +14,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-light shadow p-2 mb-3 bg-body-tertiary rounded navtop ">
-    <a href="" class="navbar-brand text-success">Uresha Pos system</a>
+    <a href="" class="navbar-brand text-success">Pos system</a>
     <button class="navbar-toggler" data-toggle="collapse" data-target="#item"><span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse justify-content-start" id="item">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
@@ -175,24 +175,52 @@
 
                             <div class="col-md-6 fw-bold">
                                 <label class="form-label" for="orderFormItemName">Discount :</label>
-                                <input class="form-control" id="txtDiscount" readonly="readonly" required type="text">
+                                <input class="form-control" id="txtDiscount" placeholder="00">
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-md-6 fw-bold">
+                        <div class="row ">
+                            <div class="col-md-13 fw-bold">
                                 <label class="form-label" for="orderFormItemName">Balance :</label>
-                                <input class="form-control" id="txtBalance" readonly="readonly" required type="text">
+                                <input class="form-control" id="txtBalance" placeholder="0000.00">
                             </div>
 
                             <div class="col-md-6 fw-bold mt-4">
-                                <button class="btn bg-success p-2 text-white bg-opacity-100 fw-bold" id="btnPurchase"
+                                <button class="btn bg-success p-2  text-white fw-bold" id="btnPurchase"
                                         type="button">Purchase
                                 </button>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section class="row mt-3 ">
+            <div class="col">
+                <table class="table table-light table-striped caption-top">
+                    <caption>All Items</caption>
+                    <thead class="manageCustomer text-black">
+
+                    <tr class="text-success">
+                        <th>Item Code</th>
+                        <th>Item Name</th>
+                        <th>Item Price</th>
+                        <th>Qty</th>
+                        <th>Total</th>
+                    </tr>
+                    <tr>
+                        <td>001</td>
+                        <td>keerisamba </td>
+                        <td>525.00</td>
+                        <td>200 kg</td>
+                        <td>1050</td>
+                    </tr>
+                    </thead>
+                    <tbody id="ItemsTable">
+
+                    </tbody>
+                </table>
             </div>
         </section>
     </div>
