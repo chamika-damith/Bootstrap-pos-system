@@ -18,6 +18,7 @@ body{
 }
 .navigation:hover{
     color: #00ff04 !important;
+    cursor: pointer;
 }
 #homediv{
     position: fixed;

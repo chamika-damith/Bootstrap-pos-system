@@ -20,7 +20,7 @@
   <div class="collapse navbar-collapse justify-content-start" id="item">
     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
       <li class="nav-item ">
-        <span class="nav-link active text-primary" id="home-btn">Home</span>
+        <span class="nav-link navigation active text-primary" id="home-btn">Home</span>
       </li>
       <li class="nav-item ">
         <span class="nav-link navigation text-primary" id="order-btn">Orders</span>
@@ -78,7 +78,7 @@
   </div>
 </section>
 
-<section class="container-fluid order-section" id="orderForm">
+<section class="container-fluid order-section container-sm" id="orderForm">
   <div class="container-fluid " id="placeOrder">
     <section class="row m-2">
       <div class="col bg-light m-1 card od col-md-4">
@@ -284,25 +284,25 @@
                 <div class="card-body">
                   <form>
                     <div class="form-group">
-                      <label for="customerID">Item Code:</label>
-                      <input type="text" class="form-control" id="IcustomerID">
+                      <label for="customerID" class="fw-bold">Item Code:</label>
+                      <input type="text" class="form-control" id="IID" placeholder="I001">
                     </div>
-                    <div class="form-group">
-                      <label for="customerName">Item Name:</label>
-                      <input type="text" class="form-control" id="IcustomerName">
+                    <div class="form-group mt-2">
+                      <label for="customerName" class="fw-bold">Item Name:</label>
+                      <input type="text" class="form-control" id="IName" placeholder="keerisamba">
                     </div>
-                    <div class="form-group">
-                      <label for="customerAddress">Item Price:</label>
-                      <input type="text" class="form-control" id="IcustomerAddress">
+                    <div class="form-group mt-2">
+                      <label for="customerAddress" class="fw-bold">Item Price:</label>
+                      <input type="text" class="form-control" id="IPrice" placeholder="1000.00">
                     </div>
-                    <div class="form-group">
-                      <label for="customerContact">Item Quantity:</label>
-                      <input type="text" class="form-control" id="IcustomerContact">
+                    <div class="form-group mt-2">
+                      <label for="customerContact" class="fw-bold">Item Quantity:</label>
+                      <input type="text" class="form-control" id="Iquentity" placeholder="50">
                     </div>
-                    <div class="form-group text-center ">
-                      <button type="submit" class="btn btn-primary ">Save</button>
-                      <button type="button" class="btn btn-warning ">Update</button>
-                      <button type="button" class="btn btn-info">Close</button>
+                    <div class="form-group text-center mt-4 ">
+                      <button type="submit" class="btn btn-primary mx-2 ">Save</button>
+                      <button type="button" class="btn btn-warning">Update</button>
+                      <button type="button" class="btn btn-info mx-2">Close</button>
                     </div>
                   </form>
                 </div>
@@ -315,25 +315,23 @@
   </div>
   <section class="row mt-3 ">
     <div class="col">
-      <table class="table table-light table-striped caption-top">
+      <table class="table table-hover table-borderless table-striped caption-top">
         <caption>All Items</caption>
-        <thead class="manageCustomer text-black">
-
-        <tr class="text-success">
+        <thead class="text-success rounded-3" style="background-color: #2d3d2d">
+        <tr>
           <th>Item Code</th>
           <th>Item Name</th>
           <th>Item Price</th>
           <th>Qty</th>
         </tr>
+        </thead>
+        <tbody id="ItemsTable">
         <tr>
           <td>001</td>
           <td>keerisamba </td>
           <td>525.00</td>
           <td>200 kg</td>
         </tr>
-        </thead>
-        <tbody id="ItemsTable">
-
         </tbody>
       </table>
     </div>
@@ -350,7 +348,7 @@
           </div>
           <div class="card-body">
             <div class="mb-3">
-              <input class="form-control" id="srcCusID" placeholder="Input Name/NIC/Tp Here" type="text">
+              <input class="form-control" id="srcCusID" placeholder="Input Name/ID/Tp Here" type="text">
             </div>
             <div class=" justify-content-between">
               <button type="button" class="btn btn-success text-white">Search</button>
@@ -360,7 +358,7 @@
               </button>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item active" href="#">Name</a></li>
-                <li><a class="dropdown-item" href="#">NIC</a></li>
+                <li><a class="dropdown-item" href="#">ID</a></li>
                 <li><a class="dropdown-item" href="#">TP</a></li>
               </ul>
             </div>
@@ -378,25 +376,25 @@
                 <div class="card-body">
                   <form>
                     <div class="form-group">
-                      <label for="customerID">Customer ID:</label>
-                      <input type="text" class="form-control" id="customerID">
+                      <label for="customerID" class="fw-bold">Customer ID:</label>
+                      <input type="text" class="form-control" id="customerID" placeholder="C001">
                     </div>
-                    <div class="form-group">
-                      <label for="customerName">Customer Name:</label>
-                      <input type="text" class="form-control" id="customerName">
+                    <div class="form-group mt-2">
+                      <label for="customerName" class="fw-bold">Customer Name:</label>
+                      <input type="text" class="form-control" id="customerName" placeholder="Chamika">
                     </div>
-                    <div class="form-group">
-                      <label for="customerAddress">Customer Address:</label>
-                      <input type="text" class="form-control" id="customerAddress">
+                    <div class="form-group mt-2">
+                      <label for="customerAddress" class="fw-bold">Customer Address:</label>
+                      <input type="text" class="form-control" id="customerAddress" placeholder="Panadura">
                     </div>
-                    <div class="form-group">
-                      <label for="customerContact">Customer Contact:</label>
-                      <input type="text" class="form-control" id="customerContact">
+                    <div class="form-group mt-2">
+                      <label for="customerContact" class="fw-bold">Customer Contact:</label>
+                      <input type="text" class="form-control" id="customerContact" placeholder="0785765111">
                     </div>
-                    <div class="form-group text-center ">
-                      <button type="submit" class="btn btn-primary ">Save</button>
+                    <div class="form-group text-center mt-4">
+                      <button type="submit" class="btn btn-primary mx-2">Save</button>
                       <button type="button" class="btn btn-warning ">Update</button>
-                      <button type="button" class="btn btn-info">Close</button>
+                      <button type="button" class="btn btn-info mx-2">Close</button>
                     </div>
                   </form>
                 </div>
@@ -409,9 +407,9 @@
   </div>
   <section class="row mt-3 ">
     <div class="col">
-      <table class="table table-light table-striped caption-top">
+      <table class="table table-hover table-borderless table-striped caption-top">
         <caption>All Customers</caption>
-        <thead class="manageCustomer text-black">
+        <thead class="text-success rounded-3" style="background-color: #2d3d2d">
 
         <tr class="text-success">
           <th>CustomerID</th>
@@ -419,15 +417,14 @@
           <th>CustomerAddress</th>
           <th>Contact</th>
         </tr>
+        </thead>
+        <tbody id="customerTable">
         <tr>
           <td>001</td>
           <td>Chamika</td>
           <td>Colombo</td>
           <td>0785765111</td>
         </tr>
-        </thead>
-        <tbody id="customerTable">
-
         </tbody>
       </table>
     </div>
