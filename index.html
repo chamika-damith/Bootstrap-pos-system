@@ -78,27 +78,27 @@
   </div>
 </section>
 
-<section class="container-fluid order-section container-sm" id="orderForm">
+<section class="container-fluid order-section " id="orderForm">
   <div class="container-fluid " id="placeOrder">
     <section class="row m-2">
-      <div class="col bg-light m-1 card od col-md-4">
+      <div class="col bg-light m-1 card od col-md-6 col-lg-4 col-sm-12 ">
         <div class="card-header">
           <h5 class="card-title text-start text-white">Orders Details</h5>
         </div>
         <div class="card-body">
           <form class="row ">
             <div class="row">
-              <div class="col-md-6 ">
+              <div class="col-md-6 mb-3">
                 <label class="form-label fw-bold">Order Id :</label>
                 <input class="form-control" placeholder="D001">
               </div>
 
-              <div class="col-md-6">
+              <div class="col-md-6 mb-3">
                 <label class="form-label fw-bold">Date :</label>
                 <input class="form-control" required type="date">
               </div>
 
-              <div class="col-md-6 mt-3">
+              <div class="col-md-6 mt-3 mb-3">
                 <label class="form-label fw-bold">Customer ID :</label>
                 <select class="form-select"name="customer">
                   <option value="C001">C001</option>
@@ -106,17 +106,17 @@
                 </select>
               </div>
 
-              <div class="col-md-6 mt-3 ">
+              <div class="col-md-6 mt-3 mb-3">
                 <label class="form-label fw-bold">Customer :</label>
                 <input class="form-control" placeholder="Chamika">
               </div>
 
-              <div class="col-md-13 mt-3 ">
+              <div class="col-md-12 mt-3 mb-3">
                 <label class="form-label fw-bold">Salary :</label>
                 <input class="form-control" placeholder="10000.00">
               </div>
 
-              <div class="col-md-13 mt-3">
+              <div class="col-md-12 mt-3 mb-3">
                 <label class="form-label fw-bold">Address :</label>
                 <input class="form-control" placeholder="Panadura">
               </div>
@@ -125,14 +125,14 @@
         </div>
       </div>
 
-      <div class="col bg-light m-1 card col-md-4">
+      <div class="col bg-light m-1 card col-md-6 col-lg-4">
         <div class="card-header">
           <h5 class="card-title text-start text-white">Item Details</h5>
         </div>
         <div class="card-body">
           <form class="row">
             <div class="row mb-3">
-              <div class="col-md-6 fw-bold">
+              <div class="col-md-6 mb-3">
                 <label class="form-label fw-bold">Item ID :</label>
                 <select class="form-select"name="customer">
                   <option value="C001">P001</option>
@@ -140,7 +140,7 @@
                 </select>
               </div>
 
-              <div class="col-md-6 fw-bold">
+              <div class="col-md-6 mb-3">
                 <label class="form-label" for="orderFormItemName">Item :</label>
                 <input class="form-control" id="orderFormItemName" placeholder="Keerisamba">
               </div>
@@ -148,25 +148,25 @@
 
             <div class="row mb-3">
 
-              <div class="col-md-6 fw-bold">
+              <div class="col-md-6 mb-3">
                 <label class="form-label" for="orderFormPrice">Price :</label>
                 <input class="form-control" id="orderFormPrice" placeholder="525.00">
               </div>
 
-              <div class="col-md-6 fw-bold">
+              <div class="col-md-6 mb-3">
                 <label class="form-label" for="orderQty">QtyOnHand :</label>
                 <input class="form-control" id="orderQty" placeholder="200">
               </div>
 
             </div>
             <div class="row mb-3">
-              <div class="col-md-13 fw-bold">
+              <div class="col-md-12 mb-3">
                 <label class="form-label">Order Quantity :</label>
                 <input class="form-control" placeholder="2">
               </div>
             </div>
 
-            <div class="text-center mt-3">
+            <div class="col-12 text-center mt-3">
               <button class="btn btn-primary p-2 px-5 text-light bg-opacity-50 fw-bold "
                       type="button">Add Item
               </button>
@@ -181,13 +181,13 @@
             <h5 class="card-title text-start text-white">Payment Details</h5>
           </div>
           <div class="card-body">
-            <div class="col-md-25 fw-bold d-inline-flex gap-xxl-4 ">
-              <h3 class="fw-lighter text-primary " style="margin-left: 100px">Total :</h3>
+            <div class="col-md-25 fw-bold d-flex justify-content-center gap-xxl-4 ">
+              <h3 class="fw-lighter text-primary " >Total :</h3>
               <h3 class="fw-lighter text-primary " id="total">00.00/=</h3>
             </div>
 
-            <div class="col-md-25 fw-bold d-inline-flex gap-xxl-4  ">
-              <h3 class="fw-lighter text-primary " style="margin-left: 70px">SubTotal :</h3>
+            <div class="col-md-25 fw-bold d-flex justify-content-center gap-xxl-4  ">
+              <h3 class="fw-lighter text-primary " >SubTotal :</h3>
               <h3 class="fw-lighter text-danger" id="subTotal">00.00/=</h3>
             </div>
 
