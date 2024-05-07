@@ -68,7 +68,7 @@ body{
 #addcustomer{
     background-color: #067c8d !important;
 }
-.errorMessage{
+.errorMessageId, .errorMessageName, .errorMessageAddress, .errorMessageSalary{
     color: red;
     display: none;
 }
