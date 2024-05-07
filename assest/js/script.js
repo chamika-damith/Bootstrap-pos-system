@@ -97,3 +97,58 @@ function checkFieldSalary() {
     }
 }
 
+function checkFieldItemId() {
+    var itemId = $('#IID').val();
+    var itemIdPattern = /^I\d{2}-\d{3}$/;
+    var errorMessageItemId = $('.errorMessageItemId');
+
+    if (!itemIdPattern.test(itemId)) {
+        errorMessageItemId.show();
+        $('#IID').css('border', '2px solid red');
+    } else {
+        errorMessageItemId.hide();
+        $('#IID').css('border', '2px solid green');
+    }
+}
+
+function checkFieldItemName() {
+    var itemName = $('#IName').val();
+    var ItemNamePattern = /^\s*\S.{3,18}\S\s*$/;
+    var errorMessageItemName = $('.errorMessageItemName');
+
+    if (!ItemNamePattern.test(itemName)) {
+        errorMessageItemName.show();
+        $('#IName').css('border', '2px solid red');
+    } else {
+        errorMessageItemName.hide();
+        $('#IName').css('border', '2px solid green');
+    }
+}
+
+function checkFieldItemPrice() {
+    var itemPrice = $('#IPrice').val();
+    var ItemPricePattern  = /^(?:\d+|\d+\.\d{2})$/;
+    var errorMessageItemPrice = $('.errorMessageItemPrice');
+
+    if (!ItemPricePattern.test(itemPrice)) {
+        errorMessageItemPrice.show();
+        $('#IPrice').css('border', '2px solid red');
+    } else {
+        errorMessageItemPrice.hide();
+        $('#IPrice').css('border', '2px solid green');
+    }
+}
+
+function checkFieldItemQty() {
+    var itemQty = $('#Iquentity').val();
+    var itemQtyPattern = /^\d+$/;
+    var errorMessageItemQty = $('.errorMessageItemQty');
+
+    if (!itemQtyPattern.test(itemQty)) {
+        errorMessageItemQty.show();
+        $('#Iquentity').css('border', '2px solid red');
+    } else {
+        errorMessageItemQty.hide();
+        $('#Iquentity').css('border', '2px solid green');
+    }
+}

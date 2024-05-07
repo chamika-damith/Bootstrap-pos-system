@@ -284,20 +284,24 @@
                 <div class="card-body">
                   <form>
                     <div class="form-group">
-                      <label for="customerID" class="fw-bold">Item Code:</label>
-                      <input type="text" class="form-control" id="IID" placeholder="I001">
+                      <label for="IID" class="fw-bold">Item Code:</label>
+                      <input type="text" class="form-control" id="IID" placeholder="I001" onkeyup="checkFieldItemId()">
+                      <span class="errorMessageItemId">item id is required field: Pattern I00-000 </span>
                     </div>
                     <div class="form-group mt-2">
-                      <label for="customerName" class="fw-bold">Item Name:</label>
-                      <input type="text" class="form-control" id="IName" placeholder="keerisamba">
+                      <label for="IName" class="fw-bold">Item Name:</label>
+                      <input type="text" class="form-control" id="IName" placeholder="keerisamba" onkeyup="checkFieldItemName()">
+                      <span class="errorMessageItemName">item name is required field: Minimum 5,Max 20, Space Allowed </span>
                     </div>
                     <div class="form-group mt-2">
-                      <label for="customerAddress" class="fw-bold">Item Price:</label>
-                      <input type="text" class="form-control" id="IPrice" placeholder="1000.00">
+                      <label for="IPrice" class="fw-bold">Item Price:</label>
+                      <input type="text" class="form-control" id="IPrice" placeholder="1000.00" onkeyup="checkFieldItemPrice()">
+                      <span class="errorMessageItemPrice">item price is required field: Pattern 100.00 or 100 </span>
                     </div>
                     <div class="form-group mt-2">
-                      <label for="customerContact" class="fw-bold">Item Quantity:</label>
-                      <input type="text" class="form-control" id="Iquentity" placeholder="50">
+                      <label for="Iquentity" class="fw-bold">Item Quantity:</label>
+                      <input type="text" class="form-control" id="Iquentity" placeholder="50" onkeyup="checkFieldItemQty()">
+                      <span class="errorMessageItemQty">item Qty is required field: Only Numbers </span>
                     </div>
                     <div class="form-group text-center mt-4 ">
                       <button type="submit" class="btn btn-primary mx-2 ">Save</button>
@@ -423,12 +427,7 @@
         </tr>
         </thead>
         <tbody id="customerTable">
-        <tr>
-          <td>001</td>
-          <td>Chamika</td>
-          <td>Colombo</td>
-          <td>0785765111</td>
-        </tr>
+
         </tbody>
       </table>
     </div>
