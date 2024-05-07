@@ -32,3 +32,24 @@ $('#customer-btn').on('click', () =>{
     $('#customer-section').show();
 
 });
+
+/*validate field*/
+$(document).on('keydown', function(event) {
+    if (event.keyCode == 9) {
+        event.preventDefault();
+    }
+});
+
+function checkField(){
+    var cusid = $('#customerID').val();
+    var cusidPattern = /^C\d{2}-\d{3}$/;
+    var cusidDiv = $('#cusidDiv');
+    var errorMessage = $('.errorMessage');
+    if (!cusidPattern.test(cusid)) {
+        errorMessage.show();
+        $('#customerID').css({'border': '2px solid red'});
+    } else {
+        errorMessage.hide();
+        $('#customerID').css({'border': '2px solid green'});
+    }
+}

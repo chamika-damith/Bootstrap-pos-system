@@ -68,3 +68,7 @@ body{
 #addcustomer{
     background-color: #067c8d !important;
 }
+.errorMessage{
+    color: red;
+    display: none;
+}

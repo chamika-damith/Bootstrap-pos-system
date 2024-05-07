@@ -375,9 +375,10 @@
                 </div>
                 <div class="card-body">
                   <form>
-                    <div class="form-group">
+                    <div class="form-group" id="cusidDiv">
                       <label for="customerID" class="fw-bold">Customer ID:</label>
-                      <input type="text" class="form-control" id="customerID" placeholder="C001">
+                      <input type="text" class="form-control" id="customerID" placeholder="C001" onkeyup="checkField()">
+                      <span class="errorMessage">cus id is required field: Pattern C00-000 </span>
                     </div>
                     <div class="form-group mt-2">
                       <label for="customerName" class="fw-bold">Customer Name:</label>
