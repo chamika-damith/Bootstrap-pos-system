@@ -57,9 +57,12 @@ $("#customerTable").on('click', 'tr', function() {
     $("#customerSalary").val(salary);
 });
 $("#customerTable").on('dblclick','tr',function() {
-    let index = $(this).index();
-    recordIndex = index;
-    $('.delete_btn').click();
+    let alertConfrimDelete = confirm('Do you really want to delete this customer');
+    if (alertConfrimDelete==true) {
+        let index = $(this).index();
+        recordIndex = index;
+        $('.delete_btn').click();
+    }
 });
 
 

@@ -57,9 +57,12 @@ $("#ItemsTable").on('click', 'tr', function() {
     $("#Iquentity").val(qty);
 });
 $("#ItemsTable").on('dblclick','tr',function() {
-    let index = $(this).index();
-    recordIndex = index;
-    $('.item_delete_btn').click();
+    let alertConfrimDelete = confirm('Do you really want to delete this item');
+    if (alertConfrimDelete==true){
+        let index = $(this).index();
+        recordIndex = index;
+        $('.item_delete_btn').click();
+    }
 });
 
 $(".item_delete_btn").on('click', () => {
