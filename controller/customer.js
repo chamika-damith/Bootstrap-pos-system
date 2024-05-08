@@ -20,21 +20,25 @@ function loadTable(){
 
 $(".save_btn").on('click', () => {
 
-    var customerID = $('#customerID').val();
-    var customerName = $('#customerName').val();
-    var customerAddress = $('#customerAddress').val();
-    var customerSalary = $('#customerSalary').val();
+    let alertConfrim = confirm('Do you really want to add this customer');
+    if (alertConfrim==true) {
 
+        var customerID = $('#customerID').val();
+        var customerName = $('#customerName').val();
+        var customerAddress = $('#customerAddress').val();
+        var customerSalary = $('#customerSalary').val();
 
-    let customerObj = new customerModel(
-        customerID, customerName, customerAddress, customerSalary
-    );
+        let customerObj = new customerModel(
+            customerID, customerName, customerAddress, customerSalary
+        );
 
-    // push to the array
-    customer.push(customerObj);
-    console.log(customerObj.id);
-    loadTable();
-    clearField();
+        customer.push(customerObj);
+
+        loadTable();
+        clearField();
+    }else {
+        clearField();
+    }
 });
 
 $("#customerTable").on('click', 'tr', function() {
@@ -65,3 +69,19 @@ function clearField(){
     $("#customerAddress").val('');
     $("#customerSalary").val('');
 }
+
+$(".update_btn").on('click', () => {
+    var customerID = $('#customerID').val();
+    var customerName = $('#customerName').val();
+    var customerAddress = $('#customerAddress').val();
+    var customerSalary = $('#customerSalary').val();
+
+    let customerUpdateObj = customer[recordIndex];
+    customerUpdateObj.id=customerID;
+    customerUpdateObj.name=customerName;
+    customerUpdateObj.address=customerAddress;
+    customerUpdateObj.salary=customerSalary
+
+    loadTable();
+    clearField();
+});
