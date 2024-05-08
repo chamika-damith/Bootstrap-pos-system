@@ -1,1 +1,1 @@
-var customer=[];
+export var customer=[];
