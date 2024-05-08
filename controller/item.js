@@ -1,6 +1,5 @@
 import itemModel from '/model/itemModel.js';
-import {customer, items} from '/db/db.js';
-import customerModel from "../model/customerModel";
+import {items} from '/db/db.js';
 
 var recordIndex;
 
@@ -42,3 +41,52 @@ $(".item_save_btn").on('click', () => {
     }
 });
 
+$("#ItemsTable").on('click', 'tr', function() {
+    let index = $(this).index();
+    recordIndex = index;
+
+    let id = $(this).find(".item-id-value").text();
+    let name = $(this).find(".item-name-value").text();
+    let price = $(this).find(".item-price-value").text();
+    let qty = $(this).find(".item-qty-value").text();
+
+
+    $("#IID").val(id);
+    $("#IName").val(name);
+    $("#IPrice").val(price);
+    $("#Iquentity").val(qty);
+});
+$("#ItemsTable").on('dblclick','tr',function() {
+    let index = $(this).index();
+    recordIndex = index;
+    $('.item_delete_btn').click();
+});
+
+$(".item_delete_btn").on('click', () => {
+    items.splice(recordIndex, 1);
+    loadTable();
+    clearField();
+});
+
+function clearField(){
+    $("#IID").val('');
+    $("#IName").val('');
+    $("#IPrice").val('');
+    $("#Iquentity").val('');
+}
+
+$(".item_update_btn").on('click', () => {
+    var itemId = $('#IID').val();
+    var itemName = $('#IName').val();
+    var itemPrice = $('#IPrice').val();
+    var itemQty = $('#Iquentity').val();
+
+    let itemUpdateObj = items[recordIndex];
+    itemUpdateObj.id=itemId;
+    itemUpdateObj.name=itemName;
+    itemUpdateObj.price=itemPrice;
+    itemUpdateObj.qty=itemQty
+
+    loadTable();
+    clearField();
+});
