@@ -56,6 +56,12 @@ $("#customerTable").on('click', 'tr', function() {
     $("#customerAddress").val(address);
     $("#customerSalary").val(salary);
 });
+$("#customerTable").on('dblclick','tr',function() {
+    let index = $(this).index();
+    recordIndex = index;
+    $('.delete_btn').click();
+});
+
 
 $(".delete_btn").on('click', () => {
     customer.splice(recordIndex, 1);
