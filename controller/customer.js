@@ -34,6 +34,7 @@ $(".save_btn").on('click', () => {
     customer.push(customerObj);
     console.log(customerObj.id);
     loadTable();
+    clearField();
 });
 
 $("#customerTable").on('click', 'tr', function() {
@@ -50,5 +51,17 @@ $("#customerTable").on('click', 'tr', function() {
     $("#customerName").val(name);
     $("#customerAddress").val(address);
     $("#customerSalary").val(salary);
-
 });
+
+$(".delete_btn").on('click', () => {
+    customer.splice(recordIndex, 1);
+    loadTable();
+    clearField();
+});
+
+function clearField(){
+    $("#customerID").val('');
+    $("#customerName").val('');
+    $("#customerAddress").val('');
+    $("#customerSalary").val('');
+}
