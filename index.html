@@ -90,35 +90,34 @@
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label class="form-label fw-bold">Order Id :</label>
-                <input class="form-control" placeholder="D001">
+                <input class="form-control" placeholder="D001" disabled>
               </div>
 
               <div class="col-md-6 mb-3">
                 <label class="form-label fw-bold">Date :</label>
-                <input class="form-control" required type="date">
+                <input class="form-control" required type="date" disabled>
               </div>
 
               <div class="col-md-6 mt-3 mb-3">
                 <label class="form-label fw-bold">Customer ID :</label>
-                <select class="form-select"name="customer">
-                  <option value="C001">C001</option>
-
+                <select class="form-select" name="customer" id="cusIdOption">
+                  <option>C00-000</option>
                 </select>
               </div>
 
               <div class="col-md-6 mt-3 mb-3">
-                <label class="form-label fw-bold">Customer :</label>
-                <input class="form-control" placeholder="Chamika">
+                <label class="form-label fw-bold">Customer name:</label>
+                <input class="form-control" placeholder="Chamika" disabled>
               </div>
 
               <div class="col-md-12 mt-3 mb-3">
                 <label class="form-label fw-bold">Salary :</label>
-                <input class="form-control" placeholder="10000.00">
+                <input class="form-control" placeholder="10000.00" disabled>
               </div>
 
               <div class="col-md-12 mt-3 mb-3">
                 <label class="form-label fw-bold">Address :</label>
-                <input class="form-control" placeholder="Panadura">
+                <input class="form-control" placeholder="Panadura" disabled>
               </div>
             </div>
           </form>
@@ -134,33 +133,33 @@
             <div class="row mb-3">
               <div class="col-md-6 mb-3">
                 <label class="form-label fw-bold">Item ID :</label>
-                <select class="form-select"name="customer">
+                <select class="form-select" name="customer">
                   <option value="C001">P001</option>
 
                 </select>
               </div>
 
               <div class="col-md-6 mb-3">
-                <label class="form-label" for="orderFormItemName">Item :</label>
-                <input class="form-control" id="orderFormItemName" placeholder="Keerisamba">
+                <label class="form-label fw-bold" for="orderFormItemName">Item name:</label>
+                <input class="form-control" id="orderFormItemName" placeholder="Keerisamba" disabled>
               </div>
             </div>
 
             <div class="row mb-3">
 
               <div class="col-md-6 mb-3">
-                <label class="form-label" for="orderFormPrice">Price :</label>
-                <input class="form-control" id="orderFormPrice" placeholder="525.00">
+                <label class="form-label fw-bold" for="orderFormPrice">Price :</label>
+                <input class="form-control" id="orderFormPrice" placeholder="525.00" disabled>
               </div>
 
               <div class="col-md-6 mb-3">
-                <label class="form-label" for="orderQty">QtyOnHand :</label>
-                <input class="form-control" id="orderQty" placeholder="200">
+                <label class="form-label fw-bold" for="orderQty">QtyOnHand :</label>
+                <input class="form-control" id="orderQty" placeholder="200" disabled>
               </div>
 
             </div>
             <div class="row mb-3">
-              <div class="col-md-12 mb-3">
+              <div class="col-md-12 mb-3 fw-bold">
                 <label class="form-label">Order Quantity :</label>
                 <input class="form-control" placeholder="2">
               </div>
@@ -438,5 +437,6 @@
 <script src="/assest/js/script.js"></script>
 <script type="module" src="controller/customer.js"></script>
 <script type="module" src="controller/item.js"></script>
+<script type="module" src="controller/order.js"></script>
 </body>
 </html>
