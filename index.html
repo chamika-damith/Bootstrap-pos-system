@@ -90,12 +90,12 @@
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label class="form-label fw-bold">Order Id :</label>
-                <input class="form-control" placeholder="D001" disabled>
+                <input class="form-control" id="orderId" placeholder="D001" disabled>
               </div>
 
               <div class="col-md-6 mb-3">
                 <label class="form-label fw-bold">Date :</label>
-                <input class="form-control" required type="date" disabled>
+                <input class="form-control" id="orderDate" required type="date" disabled>
               </div>
 
               <div class="col-md-6 mt-3 mb-3">
@@ -133,7 +133,7 @@
             <div class="row mb-3">
               <div class="col-md-6 mb-3">
                 <label class="form-label fw-bold">Item ID :</label>
-                <select class="form-select" name="customer">
+                <select class="form-select" name="customer" id="itemIdOption">
                   <option value="C001">P001</option>
 
                 </select>
@@ -154,19 +154,19 @@
 
               <div class="col-md-6 mb-3">
                 <label class="form-label fw-bold" for="orderQty">QtyOnHand :</label>
-                <input class="form-control" id="orderQty" placeholder="200" disabled>
+                <input class="form-control" placeholder="200" disabled>
               </div>
 
             </div>
             <div class="row mb-3">
               <div class="col-md-12 mb-3 fw-bold">
                 <label class="form-label">Order Quantity :</label>
-                <input class="form-control" placeholder="2">
+                <input class="form-control" placeholder="2" id="orderQty">
               </div>
             </div>
 
             <div class="col-12 text-center mt-3">
-              <button class="btn btn-primary p-2 px-5 text-light bg-opacity-50 fw-bold "
+              <button class="btn btn-primary p-2 px-5 text-light bg-opacity-50 fw-bold btn_addItem"
                       type="button">Add Item
               </button>
             </div>
@@ -220,7 +220,7 @@
 
     <section class="row mt-3 ">
       <div class="col">
-        <table class="table table-hover table-borderless table-striped caption-top">
+        <table class="table table-hover table-borderless table-striped caption-top" id="orderCard">
           <caption>All Orders</caption>
           <thead class="text-success rounded-3" style="background-color: #2d3d2d">
           <tr>
@@ -232,13 +232,7 @@
           </tr>
           </thead>
           <tbody>
-            <tr>
-            <td>001</td>
-            <td>keerisamba </td>
-            <td>525.00</td>
-            <td>200 kg</td>
-            <td>1050</td>
-          </tr>
+
           </tbody>
         </table>
       </div>
