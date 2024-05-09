@@ -121,9 +121,21 @@ $("#btn_addItem").on('click', () => {
 
     var totalAllItems = 0;
     order.forEach(item => {
-        totalAllItems += item.total; // Assuming each item object in the order array has a 'total' property
+        totalAllItems += item.total;
     });
 
     $('#total').val(totalAllItems);
+    $('#subTotal').val(totalAllItems);
+
+    var orderFormQtyOnHand=$('#orderFormQtyOnHand').val();
+    var updateQty=orderFormQtyOnHand-orderQty;
+
+    let selectedItemIndex = items.findIndex(item => item.id === selectedItemId);
+    if (selectedItemIndex !== -1) {
+        items[selectedItemIndex].qty = updateQty;
+        $('#orderFormQtyOnHand').val(updateQty);
+    }
+
+    loadAllItemsId();
 
 });
