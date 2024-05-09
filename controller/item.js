@@ -34,6 +34,7 @@ $(".item_save_btn").on('click', () => {
 
         items.push(itemObj);
 
+        loadAllItemsId();
         loadTable();
         clearField();
     }else {
@@ -93,3 +94,10 @@ $(".item_update_btn").on('click', () => {
     loadTable();
     clearField();
 });
+
+function loadAllItemsId() {
+    $('#itemIdOption').empty();
+    for (let itemArElement of items) {
+        $('#itemIdOption').append(`<option>${itemArElement.id}</option>`);
+    }
+}

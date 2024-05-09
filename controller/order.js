@@ -1,9 +1,11 @@
 import orderDetailsModel from "../model/orderDetailsModel.js";
 import {customer} from '/db/db.js';
+import {items} from '/db/db.js';
 import {orderDetails} from '/db/db.js';
 
 
 let selectedCustomerId;
+let selectedItemId;
 
 $("#btnPurchase").on('click', () => {
 
@@ -41,6 +43,14 @@ function loadAllCustomerId() {
     }
 }
 
+function loadAllItemsId() {
+    $('#itemIdOption').empty();
+    for (let itemArElement of items) {
+        $('#itemIdOption').append(`<option>${itemArElement.id}</option>`);
+    }
+}
+
+loadAllItemsId();
 loadAllCustomerId();
 generateCurrentDate();
 
@@ -51,6 +61,17 @@ $('#cusIdOption').on('change', function(){
             $('#orderCusName').val(customerArElement.name);
             $('#orderCusSalary').val(customerArElement.salary);
             $('#orderCusAddress').val(customerArElement.address);
+        }
+    }
+});
+
+$('#itemIdOption').on('change', function(){
+    selectedItemId = $('#itemIdOption option:selected').text();
+    for (let itemArElement of items) {
+        if (itemArElement.id==selectedItemId){
+            $('#orderFormItemName').val(itemArElement.name);
+            $('#orderFormPrice').val(itemArElement.price);
+            $('#orderFormQtyOnHand').val(itemArElement.qty);
         }
     }
 });
