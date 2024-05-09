@@ -103,7 +103,6 @@ $("#btn_addItem").on('click', () => {
 
     allTotal+=CalTotal;
 
-
     let record = `
             <tr>
                 <td>${selectedItemId}</td>
@@ -115,18 +114,15 @@ $("#btn_addItem").on('click', () => {
     $("#orderCart").append(record);
 
     let orderObj = new orderModel(CalTotal);
-
     order.push(orderObj);
 
+    calTotalAllItem();
+    updateQty();
+    loadAllItemsId();
 
-    var totalAllItems = 0;
-    order.forEach(item => {
-        totalAllItems += item.total;
-    });
+});
 
-    $('#total').val(totalAllItems);
-    $('#subTotal').val(totalAllItems);
-
+function updateQty(){
     var orderFormQtyOnHand=$('#orderFormQtyOnHand').val();
     var updateQty=orderFormQtyOnHand-orderQty;
 
@@ -135,7 +131,14 @@ $("#btn_addItem").on('click', () => {
         items[selectedItemIndex].qty = updateQty;
         $('#orderFormQtyOnHand').val(updateQty);
     }
+}
 
-    loadAllItemsId();
+function calTotalAllItem(){
+    var totalAllItems = 0;
+    order.forEach(item => {
+        totalAllItems += item.total;
+    });
 
-});
+    $('#total').val(totalAllItems);
+    $('#subTotal').val(totalAllItems);
+}
