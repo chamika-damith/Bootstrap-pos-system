@@ -1,11 +1,20 @@
 import orderDetailsModel from "../model/orderDetailsModel.js";
 import {customer} from '/db/db.js';
 import {items} from '/db/db.js';
+import {order} from '/db/db.js';
 import {orderDetails} from '/db/db.js';
+import orderModel from "../model/orderModel.js";
 
 
 let selectedCustomerId;
 let selectedItemId;
+
+let itemName;
+let itemPrice;
+let itemQty;
+let orderQty;
+
+var allTotal=0;
 
 $("#btnPurchase").on('click', () => {
 
@@ -69,10 +78,52 @@ $('#itemIdOption').on('change', function(){
     selectedItemId = $('#itemIdOption option:selected').text();
     for (let itemArElement of items) {
         if (itemArElement.id==selectedItemId){
-            $('#orderFormItemName').val(itemArElement.name);
-            $('#orderFormPrice').val(itemArElement.price);
-            $('#orderFormQtyOnHand').val(itemArElement.qty);
+             itemName = itemArElement.name;
+             itemPrice = itemArElement.price;
+             itemQty =itemArElement.qty;
+
+             $('#orderFormItemName').val(itemName);
+             $('#orderFormPrice').val(itemPrice);
+             $('#orderFormQtyOnHand').val(itemQty);
         }
     }
 });
 
+function calTotal(itemPrice, orderQty) {
+    let price=parseInt(itemPrice);
+    let qty=parseFloat(orderQty);
+    let total=price*qty;
+
+    return total;
+}
+
+$("#btn_addItem").on('click', () => {
+    orderQty = $('#orderQty').val();
+    var CalTotal=calTotal(itemPrice,orderQty);
+
+    allTotal+=CalTotal;
+
+
+    let record = `
+            <tr>
+                <td>${selectedItemId}</td>
+                <td>${itemName}</td> 
+                <td>${itemPrice}</td>
+                <td>${orderQty}</td> 
+                <td>${CalTotal}</td> 
+            </tr>`;
+    $("#orderCart").append(record);
+
+    let orderObj = new orderModel(CalTotal);
+
+    order.push(orderObj);
+
+
+    var totalAllItems = 0;
+    order.forEach(item => {
+        totalAllItems += item.total; // Assuming each item object in the order array has a 'total' property
+    });
+
+    $('#total').val(totalAllItems);
+
+});

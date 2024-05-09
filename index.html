@@ -166,7 +166,7 @@
             </div>
 
             <div class="col-12 text-center mt-3">
-              <button class="btn btn-primary p-2 px-5 text-light bg-opacity-50 fw-bold btn_addItem"
+              <button class="btn btn-primary p-2 px-5 text-light bg-opacity-50 fw-bold " id="btn_addItem"
                       type="button">Add Item
               </button>
             </div>
@@ -181,13 +181,13 @@
           </div>
           <div class="card-body">
             <div class="col-md-25 fw-bold d-flex justify-content-center gap-xxl-4 ">
-              <h3 class="fw-lighter text-primary " >Total :</h3>
-              <h3 class="fw-lighter text-primary " id="total">00.00/=</h3>
+              <h2 class="fw-lighter text-primary " >Total :</h2>
+              <input type="text" class="fw-lighter text-primary" id="total" placeholder="00.00" style="font-size: 25px ; width: 100px; border: none" disabled>
             </div>
 
             <div class="col-md-25 fw-bold d-flex justify-content-center gap-xxl-4  ">
-              <h3 class="fw-lighter text-primary " >SubTotal :</h3>
-              <h3 class="fw-lighter text-danger" id="subTotal">00.00/=</h3>
+              <h2 class="fw-lighter text-primary " >SubTotal :</h2>
+              <input type="text" class="fw-lighter text-primary" id="subTotal" placeholder="00.00" style="font-size: 25px ; width: 100px; border: none" disabled>
             </div>
 
             <div class="row">
@@ -220,7 +220,7 @@
 
     <section class="row mt-3 ">
       <div class="col">
-        <table class="table table-hover table-borderless table-striped caption-top" id="orderCard">
+        <table class="table table-hover table-borderless table-striped caption-top" id="orderCart">
           <caption>All Orders</caption>
           <thead class="text-success rounded-3" style="background-color: #2d3d2d">
           <tr>
