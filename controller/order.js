@@ -1,6 +1,9 @@
 import orderDetailsModel from "../model/orderDetailsModel.js";
-import { orderDetails} from "../db/db.js";
+import {customer} from '/db/db.js';
+import {orderDetails} from '/db/db.js';
 
+
+let selectedCustomerId;
 
 $("#btnPurchase").on('click', () => {
 
@@ -21,12 +24,34 @@ $("#btnPurchase").on('click', () => {
         );
 
         orderDetails.push(orderDetailObj);
-
     }
+
+    console.log(customer);
+
 });
 
 function generateCurrentDate(){
     $("#orderDate").val(new Date().toISOString().slice(0, 10));
 }
 
+function loadAllCustomerId() {
+    $('#cusIdOption').empty();
+    for (let customerArElement of customer) {
+        $('#cusIdOption').append(`<option>${customerArElement.id}</option>`);
+    }
+}
+
+loadAllCustomerId();
 generateCurrentDate();
+
+$('#cusIdOption').on('change', function(){
+    selectedCustomerId = $('#cusIdOption option:selected').text();
+    for (let customerArElement of customer) {
+        if (customerArElement.id==selectedCustomerId){
+            $('#orderCusName').val(customerArElement.name);
+            $('#orderCusSalary').val(customerArElement.salary);
+            $('#orderCusAddress').val(customerArElement.address);
+        }
+    }
+});
+

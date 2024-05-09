@@ -34,6 +34,7 @@ $(".save_btn").on('click', () => {
 
         customer.push(customerObj);
 
+        loadAllCustomerId();
         loadTable();
         clearField();
     }else {
@@ -94,3 +95,11 @@ $(".update_btn").on('click', () => {
     loadTable();
     clearField();
 });
+
+function loadAllCustomerId() {
+    $('#cusIdOption').empty();
+    for (let customerArElement of customer) {
+        $('#cusIdOption').append(`<option>${customerArElement.id}</option>`);
+    }
+}
+
