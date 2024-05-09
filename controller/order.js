@@ -22,7 +22,11 @@ $("#btnPurchase").on('click', () => {
 
         orderDetails.push(orderDetailObj);
 
-
-
     }
 });
+
+function generateCurrentDate(){
+    $("#orderDate").val(new Date().toISOString().slice(0, 10));
+}
+
+generateCurrentDate();
