@@ -142,3 +142,27 @@ function calTotalAllItem(){
     $('#total').val(totalAllItems);
     $('#subTotal').val(totalAllItems);
 }
+
+$("#orderQty").on('keyup', () => {
+    var orderFormQtyOnHand=parseInt($('#orderFormQtyOnHand').val());
+    var orderQty =parseInt($('#orderQty').val());
+    var itemQtyPattern = /^\d+$/;
+    var errorMessageQty = $('.errorOrderQty');
+    var errorQty = $('.errorQty');
+
+
+    if (!itemQtyPattern.test(orderQty)) {
+        errorQty.show();
+        $('#orderQty').css('border', '2px solid red');
+    } else {
+        errorQty.hide();
+        $('#orderQty').css('border', '2px solid green');
+    }
+
+    if (orderQty>orderFormQtyOnHand){
+        $('#orderQtyValue').text(orderFormQtyOnHand);
+        errorMessageQty.show();
+    }else {
+        errorMessageQty.hide();
+    }
+})

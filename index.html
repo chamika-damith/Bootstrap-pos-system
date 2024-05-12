@@ -162,6 +162,8 @@
               <div class="col-md-12 mb-3 fw-bold">
                 <label class="form-label">Order Quantity :</label>
                 <input class="form-control" placeholder="2" id="orderQty">
+                <span class="errorOrderQty">Please enter a amount lower than: <span id="orderQtyValue"></span></span>
+                <span class="errorQty">item Qty is required field: Only Numbers</span>
               </div>
             </div>
 
@@ -186,8 +188,8 @@
             </div>
 
             <div class="col-md-25 fw-bold d-flex justify-content-center gap-xxl-4  ">
-              <h2 class="fw-lighter text-primary " >SubTotal :</h2>
-              <input type="text" class="fw-lighter text-primary" id="subTotal" placeholder="00.00" style="font-size: 25px ; width: 100px; border: none" disabled>
+              <h2 class="fw-lighter text-danger " >SubTotal :</h2>
+              <input type="text" class="fw-lighter text-danger" id="subTotal" placeholder="00.00" style="font-size: 25px ; width: 100px; border: none" disabled>
             </div>
 
             <div class="row">

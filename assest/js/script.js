@@ -1,5 +1,5 @@
-/*---------spa-----------*/
 
+/*---------spa-----------*/
 $('.order-section').hide();
 $('#item-section').hide();
 $('#customer-section').hide();
@@ -152,3 +152,4 @@ function checkFieldItemQty() {
         $('#Iquentity').css('border', '2px solid green');
     }
 }
+
