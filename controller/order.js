@@ -165,4 +165,19 @@ $("#orderQty").on('keyup', () => {
     }else {
         errorMessageQty.hide();
     }
-})
+});
+
+$('#txtCash').on('keyup',() => {
+   let cashVal =parseInt( $('#txtCash').val());
+   let subTotal =parseInt( $('#subTotal').val());
+   var cashError=$('#cashError');
+
+    $('#txtBalance').val(subTotal-cashVal);
+
+   if (cashVal<subTotal){
+       cashError.show();
+   }else {
+       cashError.hide();
+   }
+
+});
