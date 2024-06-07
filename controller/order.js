@@ -16,6 +16,8 @@ let orderQty;
 
 var allTotal=0;
 
+$('#orderId').val(generateOrderId());
+
 $("#btnPurchase").on('click', () => {
 
     let alertConfrim = confirm('Do you really want to Purchase this item');
@@ -35,6 +37,8 @@ $("#btnPurchase").on('click', () => {
         );
 
         orderDetails.push(orderDetailObj);
+
+        $('#orderId').val(generateOrderId());
     }
 
     console.log(customer);
@@ -183,3 +187,33 @@ $('#txtCash').on('keyup',() => {
    }
 
 });
+
+function generateOrderId() {
+    let lastId = 'O00-001';
+
+    if (order.length > 0) {
+        let lastElement = order[order.length - 1];
+
+        if (lastElement && lastElement.orderId) {
+            let lastIdParts = lastElement.orderId.split('-');
+            let lastNumber = parseInt(lastIdParts[1]);
+
+            lastId = `O00-${String(lastNumber + 1).padStart(3, '0')}`;
+        }
+    }
+
+    return lastId;
+}
+
+// $('#txtDiscount').on('keyup', () => {
+//     let subTotal = parseFloat($('#subTotal').val());
+//     let discount = parseFloat($('#txtDiscount').val());
+//     let disTotal = 0;
+//     let subDis = 0;
+//
+//
+//     disTotal = subTotal* (discount / 100);
+//     subDis = subTotal - disTotal;
+//
+//     $('#subTotal').val(subDis);
+// });

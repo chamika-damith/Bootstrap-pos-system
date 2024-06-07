@@ -1,9 +1,12 @@
 import customerModel from '/model/customerModel.js';
-import {customer} from '/db/db.js';
+import { customer } from '/db/db.js';
 
 var recordIndex;
 
-function loadTable(){
+// Initialize the customer ID input field
+$("#customerID").val(cusIdGenerate());
+
+function loadTable() {
     $('#customerTable').empty();
 
     customer.map((item, index) => {
@@ -18,11 +21,26 @@ function loadTable(){
     });
 }
 
+function cusIdGenerate() {
+    let lastId = 'C00-001';
+
+    if (customer.length > 0) {
+        let lastElement = customer[customer.length - 1];
+
+        if (lastElement && lastElement.id) {
+            let lastIdParts = lastElement.id.split('-');
+            let lastNumber = parseInt(lastIdParts[1]);
+
+            lastId = `C00-${String(lastNumber + 1).padStart(3, '0')}`;
+        }
+    }
+
+    return lastId;
+}
+
 $(".save_btn").on('click', () => {
-
-    let alertConfrim = confirm('Do you really want to add this customer');
-    if (alertConfrim==true) {
-
+    let alertConfirm = confirm('Do you really want to add this customer');
+    if (alertConfirm) {
         var customerID = $('#customerID').val();
         var customerName = $('#customerName').val();
         var customerAddress = $('#customerAddress').val();
@@ -34,10 +52,11 @@ $(".save_btn").on('click', () => {
 
         customer.push(customerObj);
 
+        $("#customerID").val(cusIdGenerate());
         loadAllCustomerId();
         loadTable();
         clearField();
-    }else {
+    } else {
         clearField();
     }
 });
@@ -51,21 +70,20 @@ $("#customerTable").on('click', 'tr', function() {
     let address = $(this).find(".customer-address-value").text();
     let salary = $(this).find(".customer-salary-value").text();
 
-
     $("#customerID").val(id);
     $("#customerName").val(name);
     $("#customerAddress").val(address);
     $("#customerSalary").val(salary);
 });
-$("#customerTable").on('dblclick','tr',function() {
-    let alertConfrimDelete = confirm('Do you really want to delete this customer');
-    if (alertConfrimDelete==true) {
+
+$("#customerTable").on('dblclick', 'tr', function() {
+    let alertConfirmDelete = confirm('Do you really want to delete this customer');
+    if (alertConfirmDelete) {
         let index = $(this).index();
         recordIndex = index;
         $('.delete_btn').click();
     }
 });
-
 
 $(".delete_btn").on('click', () => {
     customer.splice(recordIndex, 1);
@@ -73,8 +91,8 @@ $(".delete_btn").on('click', () => {
     clearField();
 });
 
-function clearField(){
-    $("#customerID").val('');
+function clearField() {
+    $("#customerID").val(cusIdGenerate());
     $("#customerName").val('');
     $("#customerAddress").val('');
     $("#customerSalary").val('');
@@ -87,10 +105,10 @@ $(".update_btn").on('click', () => {
     var customerSalary = $('#customerSalary').val();
 
     let customerUpdateObj = customer[recordIndex];
-    customerUpdateObj.id=customerID;
-    customerUpdateObj.name=customerName;
-    customerUpdateObj.address=customerAddress;
-    customerUpdateObj.salary=customerSalary
+    customerUpdateObj.id = customerID;
+    customerUpdateObj.name = customerName;
+    customerUpdateObj.address = customerAddress;
+    customerUpdateObj.salary = customerSalary;
 
     loadTable();
     clearField();
@@ -102,4 +120,3 @@ function loadAllCustomerId() {
         $('#cusIdOption').append(`<option>${customerArElement.id}</option>`);
     }
 }
-
