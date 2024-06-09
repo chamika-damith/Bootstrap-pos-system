@@ -1,5 +1,20 @@
+:root {
+    --primary-100: #1F3A5F;
+    --primary-200: #4d648d;
+    --primary-300: #acc2ef;
+    --accent-100: #3D5A80;
+    --accent-200: #cee8ff;
+    --text-100: #FFFFFF;
+    --text-200: #e0e0e0;
+    --bg-100: #193457;
+    --bg-200: #1f2b3e;
+    --bg-300: #374357;
+
+}
+
+
 body{
-    background-color: #E9ECEE;
+    background-color: #F2F2F2;
 }
 .navbar-brand {
     font-weight: bold;
@@ -20,12 +35,50 @@ body{
     color: #00ff04 !important;
     cursor: pointer;
 }
-#homediv{
-    position: fixed;
+/*#homediv{*/
+/*    position: fixed;*/
 
-    padding: 20px;
-    z-index: 100;
+/*    padding: 20px;*/
+/*    z-index: 100;*/
+/*}*/
+
+.cardHome {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, background 0.2s;
+    background: linear-gradient(135deg, var(--primary-100) 0%, var(--accent-100) 100%);
+    color: var(--text-100);
 }
+.cardHome:hover {
+    transform: translateY(-4px);
+    background: linear-gradient(135deg, var(--accent-100) 0%, var(--primary-100) 100%);
+}
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+.count {
+    font-size: 2.5rem;
+}
+.link-page {
+    display: block;
+    margin-top: 15px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+.link-page:hover {
+    text-decoration: underline;
+}
+.fa-2xl {
+    font-size: 2.5rem;
+    margin-top: 15px;
+}
+/*canvas {*/
+/*    background-color: var(--primary-100);*/
+/*    border-radius: 10px;*/
+/*}*/
 .myCard{
 
     width: 100%;

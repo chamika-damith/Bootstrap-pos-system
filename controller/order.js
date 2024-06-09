@@ -205,18 +205,6 @@ function generateOrderId() {
     return lastId;
 }
 
-// $('#txtDiscount').on('input', () => {
-//     let subTotal = parseFloat($('#subTotal').val());
-//     let discount = parseFloat($('#txtDiscount').val());
-//     let disTotal = 0;
-//     let subDis = 0;
-//
-//
-//     disTotal = (subTotal*discount) / 100;
-//     subDis = subTotal - disTotal;
-//
-//     $('#subTotal').val(subDis);
-// });
 
 $('#txtDiscount').on('input', () => {
     calculatePaymentDetails();
