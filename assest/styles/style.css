@@ -35,6 +35,41 @@ body{
     color: #00ff04 !important;
     cursor: pointer;
 }
+.navbar {
+    background-color: #007bff;
+    border-radius: 10px;
+}
+
+.navbar-brand {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffc107;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    color: #00ff04 !important;
+}
+
+.navbar-nav .active {
+    font-weight: bold;
+}
+
+.fas {
+    margin-right: 5px;
+}
 /*#homediv{*/
 /*    position: fixed;*/
 
@@ -124,4 +159,125 @@ body{
 .errorMessageId, .errorMessageName, .errorMessageAddress, .errorMessageSalary,.errorMessageItemId,.errorMessageItemName,.errorMessageItemPrice,.errorMessageItemQty,.errorOrderQty,.errorQty,#cashError{
     color: red;
     display: none;
+}
+.card {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #4CAF50;
+    border-radius: 15px 15px 0 0;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.form-control {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.btn {
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.table {
+    border-radius: 15px;
+}
+
+.text-success {
+    color: #4CAF50 !important;
+}
+
+.table th,
+.table td {
+    border-top: none !important;
+}
+
+/* Add animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+    animation-duration: 1s;
+}
+
+.card {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #007bff;
+    border-radius: 15px 15px 0 0;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.form-control {
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+}
+
+.btn {
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.table {
+    border-radius: 15px;
+}
+
+.text-success {
+    color: #28a745 !important;
+}
+
+.table th,
+.table td {
+    border-top: none !important;
+}
+
+/* Add animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+    animation-duration: 1s;
 }

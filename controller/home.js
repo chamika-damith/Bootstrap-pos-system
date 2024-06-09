@@ -4,10 +4,10 @@ import {orderDetails} from '/db/db.js';
     var ordersChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: orderDetails.map(order => order.month),
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
             datasets: [{
                 label: 'Orders',
-                data: orderDetails.map(order => order.qty),
+                data: [12, 19, 3, 5, 2, 13, 7],
                 backgroundColor: 'rgba(54, 162, 235, 0.2)',
                 borderColor: 'rgba(54, 162, 235, 1)',
                 borderWidth: 1
