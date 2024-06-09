@@ -16,6 +16,10 @@ function loadTable() {
                 <td class="customer-name-value">${item.name}</td> 
                 <td class="customer-address-value">${item.address}</td>
                 <td class="customer-salary-value">${item.salary}</td> 
+                <td>
+                    <button class="btn btn-sm btn-outline-primary mx-2 " onclick="updateBtn(${index})">Edit</button>
+                    <button class="btn btn-sm btn-outline-danger mx-2 " onclick="deleteRecord(${index})">Delete</button>
+                </td>
             </tr>`;
         $("#customerTable").append(record);
     });
@@ -93,6 +97,15 @@ $(".delete_btn").on('click', () => {
     clearField();
 });
 
+function deleteRecord(recordIndex){
+    $(".delete_btn").on('click', () => {
+        customer.splice(recordIndex, 1);
+        startProgress();
+        loadTable();
+        clearField();
+    });
+}
+
 function clearField() {
     $("#customerID").val(cusIdGenerate());
     $("#customerName").val('');
@@ -116,6 +129,25 @@ $(".update_btn").on('click', () => {
     loadTable();
     clearField();
 });
+
+function updateBtn(recodIndex){
+    $(".update_btn").on('click', () => {
+        var customerID = $('#customerID').val();
+        var customerName = $('#customerName').val();
+        var customerAddress = $('#customerAddress').val();
+        var customerSalary = $('#customerSalary').val();
+
+        let customerUpdateObj = customer[recordIndex];
+        customerUpdateObj.id = customerID;
+        customerUpdateObj.name = customerName;
+        customerUpdateObj.address = customerAddress;
+        customerUpdateObj.salary = customerSalary;
+
+        startProgress();
+        loadTable();
+        clearField();
+    });
+}
 
 function loadAllCustomerId() {
     $('#cusIdOption').empty();

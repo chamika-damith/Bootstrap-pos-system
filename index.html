@@ -246,9 +246,11 @@
               </div>
 
               <div class="text-center mt-md-4">
-                <button class="btn btn-primary p-2 px-5 text-light bg-opacity-50 fw-bold" id="btnPurchase"
-                        type="button">Purchase
+                <button class="btn btn-primary p-2 px-5 text-light bg-opacity-50 fw-bold my-5" id="btnPurchase">Purchase
                 </button>
+              </div>
+              <div class="progress mt-3">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" id="progressBarOrder"></div>
               </div>
             </div>
           </div>
@@ -257,7 +259,7 @@
 
     <section class="row mt-3 ">
       <div class="col">
-        <table class="table table-hover table-borderless table-striped caption-top" id="orderCart">
+        <table class="table table-hover table-borderless table-striped caption-top text-center" id="orderCart">
           <caption>All Orders</caption>
           <thead class="text-success rounded-3" style="background-color: #2d3d2d">
           <tr>
@@ -268,7 +270,7 @@
             <th>Total</th>
           </tr>
           </thead>
-          <tbody>
+          <tbody class="tbody">
 
           </tbody>
         </table>
@@ -447,7 +449,7 @@
   </div>
   <section class="row mt-3">
     <div class="col">
-      <table class="table table-hover table-borderless table-striped caption-top">
+      <table class="table table-hover table-borderless table-striped caption-top text-center">
         <caption class="text-success fw-bold">All Customers</caption>
         <thead class="text-white" style="background-color: #007bff">
         <tr>
@@ -455,6 +457,7 @@
           <th>Customer Name</th>
           <th>Customer Address</th>
           <th>Salary</th>
+          <th>Action</th>
         </tr>
         </thead>
         <tbody id="customerTable">

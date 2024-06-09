@@ -39,6 +39,16 @@ $("#btnPurchase").on('click', () => {
         orderDetails.push(orderDetailObj);
 
         $('#orderId').val(generateOrderId());
+        $('#orderDate').val('');
+        $('#cusIdOption').val('');
+        $('#itemIdOption').val('');
+        $('#orderQty').val('');
+        $('#total').val('');
+        $('#txtCash').val('');
+        $('#txtDiscount').val('');
+
+        startProgress();
+        $(".tbody").clear();
     }
 
     console.log(customer);
@@ -234,4 +244,21 @@ function calculatePaymentDetails() {
     } else {
         cashErrorElement.style.display = 'none';
     }
+}
+
+function startProgress() {
+    var progressBar = document.getElementById('progressBarOrder');
+    var width = 0;
+    var interval = setInterval(function() {
+        if (width >= 100) {
+            clearInterval(interval);
+            setTimeout(function() {
+                // After 15 seconds, reset the progress bar if needed
+                progressBar.style.width = '0%';
+            }, 1500);
+        } else {
+            width++;
+            progressBar.style.width = width + '%';
+        }
+    }, 5);
 }
