@@ -16,6 +16,10 @@ function loadTable() {
                 <td class="item-name-value">${item.name}</td>
                 <td class="item-price-value">${item.price}</td>
                 <td class="item-qty-value">${item.qty}</td>
+                <td>
+                    <button class="btn btn-sm btn-outline-primary mx-2 " onclick="updateBtnClick(${index})">Edit</button>
+                    <button class="btn btn-sm btn-outline-danger mx-2 " onclick="deleteBtnClick(${index})">Delete</button>
+                </td>
             </tr>`;
         $("#ItemsTable").append(record);
     });
@@ -51,6 +55,8 @@ $(".item_save_btn").on('click', () => {
         );
 
         items.push(itemObj);
+
+        startProgress();
 
         $('#IID').val(ItemIdGenerate());
         loadAllItemsId();
@@ -91,6 +97,14 @@ $(".item_delete_btn").on('click', () => {
     clearField();
 });
 
+function deleteBtnClick(index) {
+    $(".item_delete_btn").on('click', () => {
+        items.splice(index, 1);
+        loadTable();
+        clearField();
+    });
+}
+
 function clearField() {
     $('#IID').val(ItemIdGenerate());
     $("#IName").val('');
@@ -114,9 +128,47 @@ $(".item_update_btn").on('click', () => {
     clearField();
 });
 
+function updateBtnClick(recordIndex){
+    var itemId = $('#IID').val();
+    var itemName = $('#IName').val();
+    var itemPrice = $('#IPrice').val();
+    var itemQty = $('#Iquentity').val();
+
+    let itemUpdateObj = items[recordIndex];
+    itemUpdateObj.id = itemId;
+    itemUpdateObj.name = itemName;
+    itemUpdateObj.price = itemPrice;
+    itemUpdateObj.qty = itemQty;
+
+    loadTable();
+    clearField();
+}
+
 function loadAllItemsId() {
     $('#itemIdOption').empty();
     for (let itemArElement of items) {
         $('#itemIdOption').append(`<option>${itemArElement.id}</option>`);
     }
+}
+
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+
+function startProgress() {
+    var progressBar = document.getElementById('progressBar');
+    var width = 0;
+    var interval = setInterval(function() {
+        if (width >= 100) {
+            clearInterval(interval);
+            setTimeout(function() {
+                // After 15 seconds, reset the progress bar if needed
+                progressBar.style.width = '0%';
+            }, 1500);
+        } else {
+            width++;
+            progressBar.style.width = width + '%';
+        }
+    }, 5);
 }

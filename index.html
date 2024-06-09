@@ -338,6 +338,9 @@
                       <button type="button" class="btn btn-warning item_update_btn">Update</button>
                       <button type="button" class="btn btn-info mx-2 item_delete_btn">Close</button>
                     </div>
+                    <div class="progress mt-3">
+                      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" id="progressBar"></div>
+                    </div>
                   </form>
                 </div>
               </div>
@@ -347,16 +350,17 @@
       </div>
     </div>
   </div>
-  <section class="row mt-3 ">
+  <section class="row mt-3 col-lg-12">
     <div class="col">
-      <table class="table table-hover table-borderless table-striped caption-top">
+      <table class="table table-hover table-borderless table-striped caption-top text-center">
         <caption class="text-success fw-bold">All Items</caption>
         <thead class="text-white" style="background-color: #4CAF50">
-        <tr>
+        <tr class=" justify-content-center">
           <th>Item Code</th>
           <th>Item Name</th>
           <th>Item Price</th>
           <th>Qty</th>
+          <th>Action</th>
         </tr>
         </thead>
         <tbody id="ItemsTable">
