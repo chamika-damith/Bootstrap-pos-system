@@ -205,15 +205,45 @@ function generateOrderId() {
     return lastId;
 }
 
-// $('#txtDiscount').on('keyup', () => {
+// $('#txtDiscount').on('input', () => {
 //     let subTotal = parseFloat($('#subTotal').val());
 //     let discount = parseFloat($('#txtDiscount').val());
 //     let disTotal = 0;
 //     let subDis = 0;
 //
 //
-//     disTotal = subTotal* (discount / 100);
+//     disTotal = (subTotal*discount) / 100;
 //     subDis = subTotal - disTotal;
 //
 //     $('#subTotal').val(subDis);
 // });
+
+$('#txtDiscount').on('input', () => {
+    calculatePaymentDetails();
+});
+
+function calculatePaymentDetails() {
+    const totalElement = document.getElementById('total');
+    const subTotalElement = document.getElementById('subTotal');
+    const cashElement = document.getElementById('txtCash');
+    const discountElement = document.getElementById('txtDiscount');
+    const balanceElement = document.getElementById('txtBalance');
+    const cashErrorElement = document.getElementById('cashError');
+
+    let total = parseFloat(totalElement.value) || 0;
+    let cash = parseFloat(cashElement.value) || 0;
+    let discountPercent = parseFloat(discountElement.value) || 0;
+
+    let discount = (total * discountPercent) / 100;
+    let subTotal = total - discount;
+    subTotalElement.value = subTotal.toFixed(2);
+
+    let balance = cash - subTotal;
+    balanceElement.value = balance.toFixed(2);
+
+    if (balance < 0) {
+        cashErrorElement.style.display = 'block';
+    } else {
+        cashErrorElement.style.display = 'none';
+    }
+}
