@@ -52,6 +52,7 @@ $(".save_btn").on('click', () => {
 
         customer.push(customerObj);
 
+        startProgress();
         $("#customerID").val(cusIdGenerate());
         loadAllCustomerId();
         loadTable();
@@ -87,6 +88,7 @@ $("#customerTable").on('dblclick', 'tr', function() {
 
 $(".delete_btn").on('click', () => {
     customer.splice(recordIndex, 1);
+    startProgress();
     loadTable();
     clearField();
 });
@@ -110,6 +112,7 @@ $(".update_btn").on('click', () => {
     customerUpdateObj.address = customerAddress;
     customerUpdateObj.salary = customerSalary;
 
+    startProgress();
     loadTable();
     clearField();
 });
@@ -119,4 +122,21 @@ function loadAllCustomerId() {
     for (let customerArElement of customer) {
         $('#cusIdOption').append(`<option>${customerArElement.id}</option>`);
     }
+}
+
+function startProgress() {
+    var progressBar = document.getElementById('progressBarCus');
+    var width = 0;
+    var interval = setInterval(function() {
+        if (width >= 100) {
+            clearInterval(interval);
+            setTimeout(function() {
+                // After 15 seconds, reset the progress bar if needed
+                progressBar.style.width = '0%';
+            }, 1500);
+        } else {
+            width++;
+            progressBar.style.width = width + '%';
+        }
+    }, 5);
 }

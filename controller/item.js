@@ -93,6 +93,7 @@ $("#ItemsTable").on('dblclick', 'tr', function() {
 
 $(".item_delete_btn").on('click', () => {
     items.splice(recordIndex, 1);
+    startProgress();
     loadTable();
     clearField();
 });
@@ -100,6 +101,7 @@ $(".item_delete_btn").on('click', () => {
 function deleteBtnClick(index) {
     $(".item_delete_btn").on('click', () => {
         items.splice(index, 1);
+        startProgress();
         loadTable();
         clearField();
     });
@@ -124,6 +126,7 @@ $(".item_update_btn").on('click', () => {
     itemUpdateObj.price = itemPrice;
     itemUpdateObj.qty = itemQty;
 
+    startProgress();
     loadTable();
     clearField();
 });
