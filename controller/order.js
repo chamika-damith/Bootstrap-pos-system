@@ -8,7 +8,6 @@ import orderModel from "../model/orderModel.js";
 
 let selectedCustomerId;
 let selectedItemId;
-
 let itemName;
 let itemPrice;
 let itemQty;
@@ -17,6 +16,16 @@ let orderQty;
 var allTotal=0;
 
 $('#orderId').val(generateOrderId());
+
+function loadCart() {
+
+    $(".tbody> tr").detach();
+
+    for (var tc of order){
+        var row="<tr><td>"+tc.itemcode+"</td><td>"+tc.itemname+"</td><td>"+tc.itemprice+"</td><td>"+tc.qty+"</td><td>"+tc.total+"</td></tr>";
+        $('#orderCart').append(row);
+    }
+}
 
 $("#btnPurchase").on('click', () => {
 
@@ -46,6 +55,10 @@ $("#btnPurchase").on('click', () => {
         $('#total').val('');
         $('#txtCash').val('');
         $('#txtDiscount').val('');
+
+
+        order.splice(0, order.length);
+        loadCart();
 
         startProgress();
         $(".tbody").clear();
@@ -115,22 +128,19 @@ function calTotal(itemPrice, orderQty) {
 
 $("#btn_addItem").on('click', () => {
     orderQty = $('#orderQty').val();
+    var itemPrice=$('#orderFormPrice').val();
     var CalTotal=calTotal(itemPrice,orderQty);
+    var itemCode=$('#itemIdOption').val();
+    var itemName=$('#orderFormItemName').val();
+
 
     allTotal+=CalTotal;
 
-    let record = `
-            <tr>
-                <td>${selectedItemId}</td>
-                <td>${itemName}</td> 
-                <td>${itemPrice}</td>
-                <td>${orderQty}</td> 
-                <td>${CalTotal}</td> 
-            </tr>`;
-    $("#orderCart").append(record);
-
-    let orderObj = new orderModel(CalTotal);
+    let orderObj = new orderModel(itemCode,itemName,itemPrice,orderQty,CalTotal);
     order.push(orderObj);
+
+
+    loadCart();
 
     calTotalAllItem();
     updateQty();
